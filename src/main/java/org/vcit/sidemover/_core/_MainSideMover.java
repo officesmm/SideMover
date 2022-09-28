@@ -35,8 +35,7 @@ public class _MainSideMover {
         MAINBOARD = Singleton.getInstance(Board.class);
         ShowBoard();
 
-        PLAYER = new Player();
-        PLAYER.init();
+        PLAYER =  Singleton.getInstance(Player.class);
         ShowCard();
     }
 
@@ -251,11 +250,13 @@ public class _MainSideMover {
     }
 
     public static void ShowBoard() {
-        MAINBOARD.TESTINPUT();
+        MAINBOARD.TEST_INPUT();
         MAINBOARD.show();
     }
 
     public static void ShowCard() {
+
+        PLAYER.TEST_INPUT();
         PLAYER.show();
     }
 

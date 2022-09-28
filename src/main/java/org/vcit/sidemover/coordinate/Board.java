@@ -27,7 +27,7 @@ public class Board {
 
     }
 
-    public void TESTINPUT() {
+    public void TEST_INPUT() {
 
         boardItem.add(new SpecialBlockCard().UseCard(new Vector2(2, 3)));
         boardItem.add(new NormalBlockCard(5).UseCard(new Vector2(4, 3)));
