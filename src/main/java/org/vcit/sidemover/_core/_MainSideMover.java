@@ -26,7 +26,7 @@ public class _MainSideMover {
 
     public static void main(String[] args) throws InstantiationException, IllegalAccessException, IOException {
         init();
-        while (true) { // until game over
+        while (true) { // until game over, game over function is outside of this project scope
             playerAction();
         }
     }
@@ -177,6 +177,7 @@ public class _MainSideMover {
                 v2 = new Vector2(Integer.parseInt(inputX), Integer.parseInt(inputY));
                 errorOccur = false;
             } catch (Exception e) {
+                System.out.println("Please input correctly");
                 errorOccur = true;
             }
         } while (errorOccur);
@@ -192,6 +193,7 @@ public class _MainSideMover {
         return true;
     }
 
+    // checking bullet hit by coordinate vector 2
     public static Hero SelectingHeroOnMap() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         if (MAINBOARD.boardItem.size() == 0) {
@@ -218,6 +220,7 @@ public class _MainSideMover {
         }
     }
 
+    // checking bullet hit by coordinate vector 2
     public static boolean OnCollisionEnter(Bullet bullet) {
         for (int m = 0; m < bullet.bulletRange; m++) {
             bullet.move();
@@ -249,20 +252,19 @@ public class _MainSideMover {
         return false;
     }
 
-    public static void ShowBoard() {
-        MAINBOARD.TEST_INPUT();
-        MAINBOARD.show();
-    }
-
-    public static void ShowCard() {
-
-        PLAYER.TEST_INPUT();
-        PLAYER.show();
-    }
-
+    // display everytime after done an action
     public static void ShowAllStatus() {
         MAINBOARD.show();
         PLAYER.show();
     }
 
+    public static void ShowBoard() {
+        MAINBOARD.TEST_INPUT(); // main board data are just for testing, if the game start normally there should not be any data in it.
+        MAINBOARD.show();
+    }
+
+    public static void ShowCard() {
+        PLAYER.TEST_INPUT(); // test input are dummy data that should come from other player info that is outside of this project scope
+        PLAYER.show();
+    }
 }
